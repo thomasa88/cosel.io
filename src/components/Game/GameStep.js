@@ -11,7 +11,6 @@ import { SecondaryButton } from '../Base/Button';
 import { PrimaryInput } from '../Base/Input';
 import WaitingForNextRound from './WaitingForNextRound';
 import GameArea from '../DrawArea/GameArea';
-import { SideBoxAd } from '../Ads/Ad';
 
 const styles = {
   replayContainer: {
@@ -195,7 +194,6 @@ class GameStep extends Component {
               <PrimaryInput maxlength={40} placeholder="Guess" value={guess} onChange={e => this.setState({ guess: e.target.value })} />
             </div>
           </form>
-          <SideBoxAd />
         </>
       );
     }
@@ -215,7 +213,6 @@ class GameStep extends Component {
             </div>
           </div>
           <GameArea style={{ flexGrow: 1 }} />
-          <SideBoxAd />
         </>
       );
     }
@@ -238,7 +235,6 @@ class GameStep extends Component {
           <div style={{ padding: '1rem', textAlign: 'center' }}>
             Type in any word or phrase. This is what the next player will draw.
           </div>
-          <SideBoxAd />
         </>
       );
     }

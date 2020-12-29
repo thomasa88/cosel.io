@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import GameResultBook from './GameResultBook';
 import CopyLink from './CopyLink';
-import { BannerAd, SideBoxAd } from '../Ads/Ad';
 import { PrimaryButton, SecondaryButton } from '../Base/Button';
 import history from '../../history';
 
@@ -55,7 +54,6 @@ class GameResults extends Component {
       nextGameHash = nextGame.hash;
     }
     const books = gameChains.map(gc => <GameResultBook gameChain={gc} />);
-    books.splice(Math.min(2, books.length - 1), 0, <BannerAd />);
     return (
       <>
         <DocumentTitle title="cosel.io - Game Results">
@@ -68,13 +66,11 @@ class GameResults extends Component {
               </div>
             </div>
             {books}
-            <SideBoxAd />
             <div className={classes.buttonContainer}>
               {!view && nextGameHash && <PrimaryButton onClick={() => this.goToNextGame(nextGameHash)}>Next Round</PrimaryButton>}
             </div>
           </div>
         </DocumentTitle>
-        <SideBoxAd />
       </>
     );
   }

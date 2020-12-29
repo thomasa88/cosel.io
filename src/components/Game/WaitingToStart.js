@@ -11,7 +11,6 @@ import colors from '../../colors';
 import CopyLink from './CopyLink';
 import { DotDotDot } from '../Base/Loader';
 import MyUsername from '../MyUsername';
-import { BannerAd, SideBoxAd } from '../Ads/Ad';
 import GameConfiguration from './GameConfiguration';
 
 const styles = {
@@ -123,8 +122,6 @@ class WaitingToStart extends Component {
               ? <PrimaryButton onClick={() => this.ready(false)}>Unready</PrimaryButton>
               : <PrimaryButton onClick={() => this.ready(true)}>Ready</PrimaryButton>}
           </div>
-          <BannerAd />
-          <SideBoxAd />
         </>
       </DocumentTitle>
     );

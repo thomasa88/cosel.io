@@ -39,12 +39,5 @@ const CopyPlugin = require('copy-webpack-plugin');
          },
        ]
      },
-     plugins: [
-       new CopyPlugin({
-         patterns: [
-           { from: 'public/ads.txt', to: '' },
-         ],
-       })
-     ],
    })
  }

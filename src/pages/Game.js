@@ -15,7 +15,6 @@ import GameResults from '../components/Game/GameResults';
 import { findGame } from '../actions/gameActions';
 import { Spinner } from '../components/Base/Loader';
 import SetUsername from '../components/Game/SetUsername';
-import { playVideoAd, BannerAd } from '../components/Ads/Ad';
 
 const styles = {
   main: {
@@ -59,9 +58,6 @@ class Game extends Component {
     const query = queryString.parse(location.search);
 
     dispatch(findGame(hash.toUpperCase()));
-    if (!isFirstPage && !query.view) {
-      playVideoAd();
-    }
   }
 
   render() {
@@ -73,20 +69,11 @@ class Game extends Component {
       userId,
       showUsernameNotSet,
       location,
-      videoAdShowing,
     } = this.props;
     let gameStep;
     let previousGameStep;
     let gameChain;
     let isWaiting = false;
-
-    if (videoAdShowing) {
-      return (
-        <div>
-          <Header />
-        </div>
-      );
-    }
 
     const query = queryString.parse(location.search);
     // ERROR
@@ -145,7 +132,6 @@ class Game extends Component {
           <main>
             <WaitingForGame />
           </main>
-          <BannerAd />
         </div>
       );
     }
@@ -173,7 +159,6 @@ Game.propTypes = {
   userId: PropTypes.string,
   showUsernameNotSet: PropTypes.bool,
   location: PropTypes.object,
-  videoAdShowing: PropTypes.bool,
   isFirstPage: PropTypes.bool,
 };
 
@@ -184,8 +169,6 @@ function mapStateToProps(state) {
     game: state.game.game,
     showUsernameNotSet: state.game.showUsernameNotSet,
     userId: state.user.user._id,
-    videoAdShowing: state.ads.videoAdShowing,
-    isFirstPage: state.ads.isFirstPage,
   };
 }
 

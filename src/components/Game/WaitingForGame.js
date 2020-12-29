@@ -7,7 +7,6 @@ import { LinearProgress } from '@material-ui/core';
 import colors from '../../colors';
 import CopyLink from './CopyLink';
 import { DotDotDot } from '../Base/Loader';
-import { BannerAd } from '../Ads/Ad';
 
 const styles = theme => ({
   info: {
@@ -114,7 +113,6 @@ class WaitingForGame extends Component {
               ))}
             </div>
           </div>
-          <BannerAd />
         </>
       </DocumentTitle>
     );

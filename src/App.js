@@ -16,7 +16,6 @@ import TermsOfService from './pages/TermsOfService';
 import Credits from './pages/Credits';
 import { getUser } from './actions/userActions';
 import { disconnectSocket } from './actions/gameActions';
-import { VideoAd } from './components/Ads/Ad';
 import { SET_IS_FIRST_PAGE } from './actions/actionTypes';
 
 const theme = createMuiTheme({
@@ -31,7 +30,7 @@ class App extends Component {
     const { dispatch } = this.props;
     document.body.style.background = colors.background;
     dispatch(getUser());
-    dispatch({
+/*    dispatch({
       type: SET_IS_FIRST_PAGE,
       payload: true,
     });
@@ -41,7 +40,7 @@ class App extends Component {
         type: SET_IS_FIRST_PAGE,
         payload: false,
       });
-    }, 3000);
+    }, 3000);*/
   }
 
   componentDidUpdate(prevProps) {
@@ -61,7 +60,6 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        <VideoAd />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/game/:hash" render={(props) => <Game {...props} key={props.match.params.hash} />} exact />
